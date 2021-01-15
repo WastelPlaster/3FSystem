@@ -1,0 +1,523 @@
+
+/*
+This work is licensed the MIT License.
+
+Author: C. C. Hall (aka Cyanobacterium)
+*/
+
+/* Tabs implementation */
+.sheet-tab-row {
+	font-weight: bold;
+}
+.sheet-tab-button { }
+
+.sheet-tabbed-pane {
+	display: none;
+}
+
+input.sheet-pctab-button1:checked ~ div.sheet-tab1, 
+input.sheet-pctab-button2:checked ~ div.sheet-tab2, 
+input.sheet-pctab-button3:checked ~ div.sheet-tab3, 
+input.sheet-pctab-buttonmain:checked ~ div.sheet-pctab, 
+input.sheet-npctab-button:checked ~ div.sheet-npctab {
+	display: block;
+}
+
+.sheet-tab-labelmain {
+    font-size: 15pt;
+}
+
+.sheet-tab-labelsub {
+    font-size: 10pt;
+}
+.sheet-center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* End of tabs */
+
+
+/* section fotmatting */
+.sheet-text-align-left { text-align:left; }
+.sheet-text-align-center { text-align:center; }
+.sheet-text-align-right { text-align:right; }
+.sheet-inline {
+	display: inline-block;
+	vertical-align: top;
+}
+
+/* specing fotmatting */
+.sheet-text-spacer-small { 
+    padding left: 5px;
+    padding right: 5px;
+}
+.sheet-text-spacer-medium { 
+    padding left: 20px;
+    padding right: 20px;
+}
+.sheet-text-spacer-large { 
+    padding left: 50px;
+    padding right: 50px;
+}
+.sheet-header {
+	padding-left: 4px;
+	padding-right: 4px;
+}
+.sheet-header-block {
+	display: inline-block;
+	padding: 6px 4px;
+}
+.sheet-column1 { }
+.sheet-column2 { }
+.sheet-column3 { } /* column 3 is for single-column pages*/
+.sheet-column1-cell {
+	vertical-align: top;
+}
+.sheet-column2-cell {
+	vertical-align: top;
+}
+.sheet-column3-cell {
+	vertical-align: top;
+}
+.sheet-section-title-bar {
+	font-family: Georgia, "Charis SIL", Utopia, Charter, serif;
+	font-size: 22pt;
+	font-weight: bold;
+	font-style: normal;
+}
+.sheet-sectionskills-title-bar {
+	font-family: Georgia, "Charis SIL", Utopia, Charter, serif;
+	font-size: 18pt;
+	font-weight: bold;
+	font-style: normal;
+	padding-bottom: 8px;
+}
+.sheet-section-content {
+	font-family: Georgia, "Charis SIL", Utopia, Charter, serif;
+	font-size: 12pt;
+	font-weight: normal;
+	font-style: normal;
+}
+.sheet-section-line-item {
+	font-family: Georgia, "Charis SIL", Utopia, Charter, serif;
+	font-size: 10pt;
+	font-weight: normal;
+	font-style: normal;
+	text-align: right;
+}
+.sheet-repeated-entry {
+	border-top: 1pt solid #808080;
+	border-bottom: none;
+	border-left: none;
+	border-right: none;
+	padding: 4px;
+}
+.sheet-repeater-fieldset {
+	border: none;
+}
+.sheet-numbox {
+	width: 3em;
+}
+.sheet-long-numbox {
+	width: 5em;
+}
+.sheet-long-text-input {
+	width: 150px;
+}
+.sheet-paragraph-box {
+	width: calc(100% - 16px);
+	height: 4em;
+}
+.sheet-list-box {
+	width: calc(100% - 16px);
+	height: 8em;
+}
+.sheet-long-list-box {
+	width: calc(100% - 16px);
+	height: 16em;
+}
+.sheet-big-bold {
+	font-size: 14pt;
+	font-weight: bold;
+	font-family: Verdana, Geneva, sans-serif;
+}
+.sheet-big-bold-attribute {
+	font-size: 14pt;
+	font-weight: bold;
+	font-family: Verdana, Geneva, sans-serif;
+	padding-left: 50px;
+	padding-right: 50px;
+	text-align: center;
+}
+button[type=roll].sheet-roll::before {
+	content: ' ';
+}
+button[type="roll"].sheet-big-bold-button {
+	font-size: 14pt;
+	font-weight: bold;
+	text-align: center;
+	font-family: Verdana, Geneva, sans-serif;
+	background: none;
+	border-style: none;
+}
+button[type="roll"].sheet-skill-button {
+	font-size: 13pt;
+	font-weight: bold;
+	text-align: center;
+	font-family: Verdana, Geneva, sans-serif;
+	background: none;
+	border-style: none;
+}
+button[type="roll"].sheet-roll:hover{
+    color: #B20000;
+}
+.sheet-big-bold-fancy-button {
+	font-size: 14pt;
+	font-weight: bold;
+	font-family: Georgia, "Charis SIL", Utopia, Charter, serif;
+	background: none;
+	border-style: none;
+}
+.sheet-big-bold-fancy {
+	font-size: 14pt;
+	font-weight: bold;
+	font-family: Georgia, "Charis SIL", Utopia, Charter, serif;
+}
+.sheet-undertext {
+	font-size: 8pt;
+	font-weight: normal;
+	font-family: Helvetica, Arial, sans-serif;
+}
+.sheet-undertext-button {
+	font-size: 8pt;
+	font-weight: bold;
+	font-family: Helvetica, Arial, sans-serif;
+	background: none;
+	border-style: none;
+}
+.sheet-skill-name {
+	width: 120px;
+}
+/**********************/
+
+/* section box layout */
+.sheet-columns {
+	border: none;
+}
+.sheet-columns td{
+	border: none;
+	padding: 4px;
+}
+.sheet-section-layout-table {
+	border: 2pt solid #808080;
+	border-collapse: separate;
+}
+.sheet-section-layout-table td {
+	padding: 0px;
+}
+.sheet-section-frame {
+	padding: 16px;
+	width: 316px;
+}
+.sheet-section-frame-2x {
+	padding: 16px;
+	width: calc(2*316px + 72px);
+}
+.sheet-subsection-table {
+	border-spacing: 0;
+}
+.sheet-subsection-table tr td {
+	border-bottom: 2pt solid #808080;
+	text-align: center;
+	vertical-align: top;
+	padding: 2px;
+}
+.sheet-attributesubsection-table tr td {
+	border-bottom: 3pt solid #808080;
+	vertical-align: top;
+	padding: 2px;
+}
+.sheet-attributesubsection-table tr td {
+	text-align: center;
+	vertical-align: top;
+	padding: 2px;
+}
+.sheet-cell-header {
+	font-weight: bold;
+	font-style: normal;
+	text-decoration: underline;
+}
+.sheet-subsection-table tr th {
+	border-bottom: 1pt solid #808080;
+	font-weight: bold;
+	font-style: italic;
+	text-align: center;
+	vertical-align: bottom;
+}
+.sheet-subsection-table tr:last-child td {
+	border-bottom: 1pt solid #808080;
+}
+.sheet-subsection-table tr td:first-child {
+	text-align: left;
+}
+.sheet-subsection-table2{
+	table-layout: fixed; 
+	width: 100%; 
+	white-space: nowrap;
+	border-spacing: 4px;
+}
+.sheet-subsection-table2 tr th {
+	border-bottom: none;
+	font-weight: bold;
+	font-style: normal;
+	text-decoration: underline;
+	text-align: center;
+	vertical-align: bottom;
+}
+.sheet-subsection-table2 tr td {
+	border-bottom: 1pt solid #808080;
+	border-top: 1pt solid #808080;
+	border-left: 1pt solid #808080;
+	border-right: 1pt solid #808080;
+	text-align: center;
+	vertical-align: top;
+	padding: 2px;
+}
+.sheet-table-hide{
+	display: none;
+}
+input.sheet-table-hide-checkbox:checked ~ div.sheet-table-hide {
+	display: block;
+}
+
+div.sheet-subsection-nontable-row  {
+	border-bottom: 1pt solid #808080;
+	border-top: 1pt solid #808080;
+	border-left: 1pt solid #808080;
+	border-right: 1pt solid #808080;
+	padding: 4px;
+}
+div:last-child.sheet-subsection-nontable-row {
+	border-bottom: none;
+}
+.sheet-half-width {
+	display: inline-block;
+	padding: 4px;
+	width: calc(50% - 16px);
+}
+.sheet-full-width {
+	display: inline-block;
+	padding: 4px;
+	width: calc(100% - 16px);
+}
+.sheet-small-padding {
+	padding: 2px;
+}
+/**********************/
+
+/* section decorations */
+.sheet-scroll-roll {
+	height: 16px;
+	background-image: url("https://raw.githubusercontent.com/cyanobacterium/Roll20-DnD5E-Character-Scrolls/master/scroll-roll.png");
+	background-repeat: repeat-x;
+}
+.sheet-scroll-left {
+	width: 16px;
+	height: 16px;
+	background: url("https://raw.githubusercontent.com/cyanobacterium/Roll20-DnD5E-Character-Scrolls/master/sprite-sheet.png") no-repeat;
+	background-position: -160px -48px;
+}
+.sheet-scroll-right {
+	width: 16px;
+	height: 16px;
+	background: url("https://raw.githubusercontent.com/cyanobacterium/Roll20-DnD5E-Character-Scrolls/master/sprite-sheet.png") no-repeat;
+	background-position: -160px -80px;
+}
+.sheet-paper-background {
+	background: url("https://i.pinimg.com/originals/c9/76/b0/c976b087b7851e3078bec4dfb71a00b4.jpg") no-repeat;
+	background-size: 100% 100%
+}
+.sheet-background1 {
+	background: url("https://raw.githubusercontent.com/cyanobacterium/Roll20-DnD5E-Character-Scrolls/master/section-content-background.png") no-repeat;
+	background-size: 100% 100%
+}
+/***************************/
+
+/* spell notes hiding */
+
+.sheet-spell-paragraph-box {
+	width: calc(100% - 16px);
+	height: 4em;
+}
+.sheet-spell-info {
+	display: none;
+}
+.sheet-spell-info-button{
+	margin: 2px;
+}
+input.sheet-spell-info-button:checked ~ div.sheet-spell-info {
+	display: block;
+}
+/**********************/
+
+/* buttons */
+.sheet-roll-button { 
+    border: 1pt solid #000000;
+    color:hover #FF0000; 
+    
+}
+
+/***********/
+
+/* sprites (16x16 and 32x32 pixel sprites) */
+.sheet-icon {
+	width: 16px;
+	height: 16px;
+	background: url("https://raw.githubusercontent.com/cyanobacterium/Roll20-DnD5E-Character-Scrolls/master/sprite-sheet.png") no-repeat;
+	display: inline-block;
+}
+.sheet-icon-large {
+	width: 32px;
+	height: 32px;
+	background: url("https://raw.githubusercontent.com/cyanobacterium/Roll20-DnD5E-Character-Scrolls/master/sprite-sheet.png") no-repeat;
+	display: inline-block;
+}
+
+/* Roll Template */
+.sheet-rolltemplate-attack .sheet-container,
+.sheet-rolltemplate-check .sheet-container,
+.sheet-rolltemplate-spell .sheet-container,
+.sheet-rolltemplate-ability .sheet-container {
+    background: url("https://image.freepik.com/free-photo/paperboard-yellow-texture_95678-83.jpg");
+    border: 1px solid;
+    padding: 2px;
+    width: 189px;
+}
+.sheet-rolltemplate-attack .sheet-container h1{
+    color: #B67503;
+    font-size: 1.3em;
+    font-variant: small-caps;
+    line-height: 20px;
+}
+
+.sheet-rolltemplate-check .sheet-container h1 {
+    color: #A803B6;
+    font-size: 1.3em;
+    font-variant: small-caps;
+    line-height: 20px;
+}
+.sheet-rolltemplate-spell .sheet-container h1 {
+    color: #0347B6;
+    font-size: 1.3em;
+    font-variant: small-caps;
+    line-height: 20px;
+}
+.sheet-rolltemplate-ability .sheet-container h1 {
+    color: #11B603;
+    font-size: 1.3em;
+    font-variant: small-caps;
+    line-height: 20px;
+}
+
+.sheet-rolltemplate-attack div,
+.sheet-rolltemplate-check div,
+.sheet-rolltemplate-spell div,
+.sheet-rolltemplate-ability div {
+    padding: 2px;
+};
+ 
+.sheet-rolltemplate-attack span,
+.sheet-rolltemplate-check span,
+.sheet-rolltemplate-spell span
+.sheet-rolltemplate-ability span {
+    color: rgb(126, 45, 64);
+    font-family: "Times New Roman", Times, serif;
+    font-size: 1.2em;
+    font-variant: small-caps;
+    line-height: 1.6em;
+    padding-left: 5px;
+    text-align: left;
+}
+ 
+.sheet-rolltemplate-attack .sheet-template-subheader,
+.sheet-rolltemplate-check .sheet-template-subheader,
+.sheet-rolltemplate-spell .sheet-template-subheader,
+.sheet-rolltemplate-ability .sheet-template-subheader {
+    color: #000;
+    font-size: 1em;
+    font-style: italic;
+}
+ 
+.sheet-rolltemplate-attack .sheet-arrow-right,
+.sheet-rolltemplate-check .sheet-arrow-right,
+.sheet-rolltemplate-spell .sheet-arrow-right,
+.sheet-rolltemplate-ability .sheet-arrow-right {
+    border-bottom: 2px solid transparent;
+    border-left: 180px solid rgb(0, 0, 0);
+    border-top: 2px solid transparent;
+}
+
+.sheet-rolltemplate-attack .sheet-tcatmain,
+.sheet-rolltemplate-spell .sheet-tcatmain {
+    font-style: italic;
+    font-weight: bold;
+    color: #7A3232;
+}
+ 
+.sheet-rolltemplate-attack .sheet-tcat {
+    font-style: italic;
+    font-weight: bold;
+    color: #000000;
+}
+
+.sheet-rolltemplate-check .sheet-tcat {
+    font-style: italic;
+    font-weight: bold;
+    color: #000000;
+}
+
+.sheet-rolltemplate-spell .sheet-tcat {
+    font-style: italic;
+    font-weight: bold;
+    color: #000000;
+}
+
+.sheet-rolltemplate-ability .sheet-tcat {
+    font-style: italic;
+    font-weight: bold;
+    color: #000000;
+}
+
+ 
+.sheet-rolltemplate-attack .inlinerollresult,
+.sheet-rolltemplate-check .inlinerollresult,
+.sheet-rolltemplate-spell .inlinerollresult,
+.sheet-rolltemplate-ability .inlinerollresult {
+    background-color: #ffffff;
+    border: none;
+}
+ 
+.sheet-rolltemplate-attack .inlinerollresult.fullcrit,
+.sheet-rolltemplate-check .inlinerollresult.fullcrit,
+.sheet-rolltemplate-spell .inlinerollresult.fullcrit,
+.sheet-rolltemplate-ability .inlinerollresult.fullcrit {
+    color: #3FB315;
+    border: none;
+}
+ 
+.sheet-rolltemplate-attack .inlinerollresult.fullfail,
+.sheet-rolltemplate-check .inlinerollresult.fullfail,
+.sheet-rolltemplate-spell .inlinerollresult.fullfail,
+.sheet-rolltemplate-ability .inlinerollresult.fullfail {
+    color: #B31515;
+    border: none;
+}
+ 
+.sheet-rolltemplate-attack .inlinerollresult.importandivoll,
+.sheet-rolltemplate-check .inlinerollresult.importandivoll,
+.sheet-rolltemplate-spell .inlinerollresult.importandivoll,
+.sheet-rolltemplate-ability .inlinerollresult.importandivoll {
+    color: #4A57ED;
+    border: none;
+}
