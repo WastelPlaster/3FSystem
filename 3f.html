@@ -1,0 +1,1772 @@
+<!-- Roll20 template -->
+<!-- 
+This work is licensed the MIT License.
+
+Author: C. C. Hall (aka Cyanobacterium)
+ -->
+	<div class="sheet-main">
+	<input type="radio" name="attr_tab_main" class="sheet-tab-button sheet-pctab-buttonmain" value="4" title="No4" checked="checked"/>
+	<span class="sheet-tab-labelmain">Player Character</span>
+	<input type="radio" name="attr_tab_main" class="sheet-tab-button sheet-npctab-button" value="5" title="No5" />
+	<span class="sheet-tab-labelmain">NPC</span>
+	<span class="sheet-tab-labelmain" style="float: right; ">Enable Hidden Rolls</span>
+	<input type="checkbox" style="float: right;" name="attr_hidden_roll" value="/w gm"/>
+    <hr>
+    
+    
+    
+	<!-- NPC TAB BEGIN -->
+	<div class="sheet-tabbed-pane sheet-npctab">
+		<table class="sheet-columns"><tr>
+		<td class="sheet-column1-cell">
+		<div class="sheet-column1">
+		    
+<!-- COLUMN 1 -->
+		
+		<!-- statistics box -->
+		<div>
+			<!-- box -->
+			<table class="sheet-section-layout-table" >
+				<tr>
+					<!-- top bar -->
+				</tr>
+				<tr>
+					<td>
+						<!-- spacer -->
+					</td>
+					<td class="sheet-paper-background">
+						<div class="sheet-section-frame sheet-section-content">
+							<!-- content begin -->
+							
+							<!-- section title bar -->
+							<div class="sheet-section-title-bar sheet-text-align-center">Statistics</div>
+							<div class="sheet-subsection-nontable-row">
+								<div class="sheet-half-width">
+									<div class="sheet-undertext">Name</div>
+									<input style="width:100%;" type="text" name="attr_character_name"/>
+								</div>
+								<div class="sheet-half-width">
+									<div class="sheet-undertext">Type</div>
+									<input style="width:100%;" type="text" name="attr_npc_type"/>
+								</div>
+								<br>
+								<div class="sheet-half-width">
+									<div class="sheet-undertext">Speed</div>
+									<input style="width:100%;" type="text" name="attr_npc_speed"/>
+								</div>
+							</div>
+							<div class="sheet-subsection-nontable-row" style="border-bottom: 1pt solid #808080;">
+							    <div class="sheet-inline">
+			                        <button class="sheet-roll sheet-big-bold-fancy-button" type="roll" value="@{hidden_roll} &{template:check} {{name=Initiative}} {{check=[[1d20 + @{npc_initiative}]]}} &{tracker}">Initiative: </button>
+			                        <input class="sheet-numbox" type="number" step="1" name="attr_npc_initiative" value="0" />
+			                    </div>
+			                    <br>
+							    <div class="sheet-inline">
+							        <div class="sheet-undertext sheet-text-align-center">AC</div>
+									<input class="sheet-numbox" style="width: 3em" type="number" name="attr_ac_npc" min="0" step="1" value="10"/>
+								</div>
+    							<div class="sheet-inline" >
+							        <div class="sheet-undertext sheet-text-align-center">THP</div>
+									<input class="sheet-numbox" style="width: 3em;" type="number" name="attr_hp_temp" min="0" step="1" value="0" />
+								</div>
+								<div class="sheet-inline">
+									<div class="sheet-undertext sheet-text-align-center">Health</div>
+									<input class="sheet-numbox" style="width: 4em;" type="number" name="attr_hp_max" min="0" step="1" value="1" />
+								</div>
+								<div class="sheet-inline">
+									<div class="sheet-undertext sheet-text-align-center">Mana</div>
+									<input class="sheet-numbox" style="width: 3em;" type="number" name="attr_mana_max" min="1" step="1" value="1" />
+								</div>
+								<br>
+								<br>
+							    <div class="sheet-inline" style="text-align; center;">
+							        <button class="sheet-roll sheet-undertext-button" type="roll" value="@{hidden_roll} &{template:check} {{name=Death's Door Resolve}} {{check=[[1d20 + 1 + @{resolve} + @{ddr_roll_bonus}]]}} {{checkadv=[[1d20 + @{resolve} + @{ddr_roll_bonus}]]}}">Death's Door Resolve</button>
+								</div>
+								<br>
+							    <div class="sheet-inline" style="text-align: center;">
+									<div class="sheet-undertext">One Time</div>
+									<input type="checkbox" checked="checked" name="attr_npc_one_time_ddr" min="0" step="1" value="1" />
+								</div>
+								<div class="sheet-inline">
+									<div class="sheet-undertext sheet-text-align-center">Roll Bonus</div>
+									<input class="sheet-numbox" style="width: 3em" type="number" name="attr_npc_ddr_roll_bonus" min="-5" step="1" value="0" />
+								</div>
+							    <div class="sheet-inline">
+							        <div class="sheet-undertext">&nbsp;</div>Uses: </div>
+								<div class="sheet-inline">
+									<div class="sheet-undertext sheet-text-align-center">Current</div>
+									<input class="sheet-numbox" style="width: 3em" type="number" name="attr_npc_ddr_current" min="0" step="1" value="0" />
+								</div>
+								 <div class="sheet-inline" >
+							        <div class="sheet-undertext">&nbsp;</div>
+    								/
+    							</div>
+								<div class="sheet-inline">
+									<div class="sheet-undertext sheet-text-align-center">Max</div>
+									<input class="sheet-numbox" style="width: 3em" type="number" name="attr_ddr_max" min="0" step="1" value="0" />
+								</div>
+							</div>
+							
+							
+							<!-- end of content -->
+						</div>
+					</td>
+					<td>
+						<!-- spacer -->
+					</td>
+				</tr>
+				<tr>
+					<!-- bottom bar -->
+				</tr>
+			</table>
+		</div>
+        <!-- end statistics box -->
+        
+		<!-- END OF COLUMN 1 -->
+		
+		</div>
+		</td><td class="sheet-column2-cell">
+		<div class="sheet-column2">
+		<!-- COLUMN 2 -->
+		
+		<!-- combat box -->
+		<div>
+			<!-- box -->
+			<table class="sheet-section-layout-table" >
+				<tr>
+					<!-- top bar -->
+				</tr>
+				<tr>
+					<td>
+						<!-- spacer -->
+					</td>
+					<td class="sheet-paper-background">
+						<div class="sheet-section-frame sheet-section-content">
+							<!-- content begin -->
+							
+							<!-- section title bar -->
+							<div class="sheet-section-title-bar sheet-text-align-center">Combat</div>
+							
+							<div class="sheet-subsection-nontable-row" style="border-bottom: none;">
+							    <div class="sheet-inline">
+							        <div class="sheet-undertext">&nbsp;</div>AC: </div>
+								<div class="sheet-inline">
+							        <div class="sheet-undertext">&nbsp;</div>
+									<input class="sheet-numbox" style="width: 3em" type="number" name="attr_ac" value="@{ac_base} + @{ac_ability} + @{ac_other}" disabled="disabled"/>
+								</div>
+								<div class="sheet-inline">
+							        <div class="sheet-undertext">&nbsp;</div>
+							    	=
+							    </div>
+								<div class="sheet-inline">
+									<div class="sheet-undertext sheet-text-align-center">Armor</div>
+									<input class="sheet-numbox" style="width: 3em" type="number" name="attr_ac_base" min="1" step="1" value="10" />
+								</div>
+								<div class="sheet-inline">
+							        <div class="sheet-undertext">&nbsp;</div>
+							    	+
+							    </div>
+								<div class="sheet-inline">
+									<div class="sheet-undertext sheet-text-align-center">Attribute</div>
+									<select class="sheet-numbox" style="width: 8em" name="attr_ac_ability">
+										<option value="@{agility}">Agility</option>
+										<option value="@{constitution}">Constitution</option>
+										<option value="0">None</option>
+									</select>
+								</div>
+								<div class="sheet-inline">
+							        <div class="sheet-undertext">&nbsp;</div>
+							    	+
+							    </div>
+								<div class="sheet-inline">
+									<div class="sheet-undertext sheet-text-align-center">Bonus</div>
+									<input class="sheet-numbox" style="width: 3em" type="number" name="attr_ac_other" step="1" value="0" />
+								</div>
+							</div>
+							<div class="sheet-subsection-nontable-row">
+								<div class="sheet-half-width">
+									<div class="sheet-undertext">Equipped Armor</div>
+									<input style="width:100%;" type="text" name="attr_armor_equipped"/>
+								</div>
+								<div class="sheet-half-width">
+									<div class="sheet-undertext">Equipped Shield</div>
+									<input style="width:100%;" type="text" name="attr_shield_equipped"/>
+								</div>
+								<br>
+									<div class="sheet-undertext">Equipped Weapons</div>
+									<input style="width:100%;" type="text" name="attr_weapons_equipped"/>
+								<br>
+									<div class="sheet-undertext">Attuned Magic Items</div>
+									<textarea class="sheet-paragraph-box" name="attr_magicitems_equipped"></textarea>
+								<br>
+									<div class="sheet-undertext">Other Equipment</div>
+									<textarea class="sheet-paragraph-box" name="attr_other_equipped"></textarea>
+							</div>
+							<div class="sheet-subsection-nontable-row">
+							    <div class="sheet-inline" >
+							        <div class="sheet-undertext">&nbsp;</div>
+    							</div>
+    							<div class="sheet-inline" >
+							        <div class="sheet-undertext">&nbsp;</div>
+    								Skill Points: 
+								</div>
+								<div class="sheet-inline">
+									<div class="sheet-undertext">Current</div>
+									<input class="sheet-numbox" style="width: 4em;" type="number" name="attr_skill_current" min="0" step="1" value="1" />
+								</div>
+								 <div class="sheet-inline" >
+							        <div class="sheet-undertext">&nbsp;</div>
+    								/
+    							</div>
+								<div class="sheet-inline">
+									<div class="sheet-undertext sheet-text-align-center">Max</div>
+									<input class="sheet-numbox" style="width: 4em;" type="number" name="attr_skill_max" min="1" step="1" value="1" />
+								</div>
+							</div>
+							<div class="sheet-subsection-nontable-row" style="border-bottom: none; text-align: center;">
+							    <div class="sheet-inline">
+							        <button class="sheet-roll sheet-undertext-button" type="roll" value="@{hidden_roll} &{template:check} {{name=Death's Door Resolve}} {{check=[[1d20 + 1 + @{resolve} + @{ddr_roll_bonus}]]}} {{checkadv=[[1d20 + @{resolve} + @{ddr_roll_bonus}]]}}">Death's Door Resolve</button>
+								</div>
+							</div>
+							<div class="sheet-subsection-nontable-row" style="border-bottom: none; border-top: none;">
+							    <div class="sheet-inline" style="text-align:center;">
+									<div class="sheet-undertext">DDS</div>
+									<input type="checkbox" checked="checked" name="attr_one_time_ddr" min="0" step="1" value="1" />
+								</div>
+							    <div class="sheet-inline">
+							        <div class="sheet-undertext">&nbsp;</div>Uses: </div>
+								<div class="sheet-inline">
+									<div class="sheet-undertext sheet-text-align-center">Current</div>
+									<input class="sheet-numbox" style="width: 3em" type="number" name="attr_ddr_current" min="0" step="1" value="0" />
+								</div>
+								 <div class="sheet-inline" >
+							        <div class="sheet-undertext">&nbsp;</div>
+    								/
+    							</div>
+								<div class="sheet-inline">
+									<div class="sheet-undertext sheet-text-align-center">Max</div>
+									<input class="sheet-numbox" style="width: 3em" type="number" name="attr_ddr_max" value="@{resolve} + @{ddr_bonus_use}" disabled="disabled" />
+								</div>
+								<div class="sheet-inline sheet-text-align-center">
+									<div class="sheet-undertext">Bonus Uses</div>
+									<input class="sheet-numbox" style="width: 3em" type="number" name="attr_ddr_bonus_use" min="-5" step="1" value="0" />
+								</div>
+								<div class="sheet-inline sheet-text-align-center">
+									<div class="sheet-undertext">Roll Bonus</div>
+									<input class="sheet-numbox" style="width: 3em" type="number" name="attr_ddr_roll_bonus" min="-5" step="1" value="0" />
+								</div>
+							</div>
+							<div class="sheet-subsection-nontable-row" style="border-bottom: 1pt solid #808080;">
+								<div style="text-align: center; font-size: 20px">Attacks</div>
+								<!-- set of entry boxes -->
+								<div class="sheet-entry-array">
+									<fieldset class="repeating_attacks sheet-repeater-fieldset">
+										<!-- start of repeated section -->
+										
+										<div class="sheet-repeated-entry" style="border: none;">
+											<div class="sheet-inline">
+												<div class="sheet-undertext">Weapon</div>
+												<input type="text" name="attr_attack_name" value="" style="width:90%">
+											</div>
+											<div class="sheet-inline">
+												<div class="sheet-undertext">Attack Bonus</div>
+												<input class="sheet-numbox" type="number" name="attr_attack_bonus" value="@{attack_ability_mod} + @{attack_mod_other} + @{attack_prof}" disabled="disabled"/>
+												<button class="sheet-roll-button" type="roll" value="@{hidden_roll} &{template:attack} {{name=@{attack_name}}} {{desc=@{attack_desc}}} {{range=@{range}}} {{attack=[[1d@{attack_crit_range} + @{attack_bonus}]]}} {{attackadv=[[1d@{attack_crit_range} +@{attack_bonus}]]}} @{attack1} @{attack2} @{attack3}" name="roll_attack"></button>
+											</div>
+											<br>
+											<div class="sheet-inline">
+												<div class="sheet-undertext">&nbsp;</div>Range:
+												<input class="text" type="text" name="attr_range" style="width:100px">
+											</div>
+											<br>
+											<div class="sheet-inline" style="width: 16px"> </div>
+											<div class="sheet-inline">
+												<div class="sheet-undertext sheet-text-align-center">Attribute</div>
+												<select class="sheet-numbox"  style="width: 6em" name="attr_attack_ability_mod">
+													<option value="@{combat}">Combat</option>
+													<option value="@{agility}">Agility</option>
+													<option value="@{magic}">Magic</option>
+													<option value="0">None</option>
+												</select>
+											</div>
+											<div class="sheet-inline">
+												<div class="sheet-undertext sheet-text-align-center">Prof.</div>
+												<select class="sheet-numbox"  style="width:4.5em" name="attr_attack_prof">
+													<option value="@{prof}">Yes</option>
+													<option value="0">No</option>
+												</select>
+											</div>
+											<div class="sheet-inline">
+												<div class="sheet-undertext sheet-text-align-center">Misc. Mod.</div>
+												<input class="sheet-numbox" type="number" name="attr_attack_mod_other" step="1" value="0" />
+											</div>
+											<div class="sheet-inline">
+												<div class="sheet-undertext sheet-text-align-center">Crit Range</div>
+												<input class="sheet-numbox" type="number" name="attr_attack_crit_range" step="1" value="20" />
+											</div>
+											<br>
+											<div class="sheet-inline">
+												<div class="sheet-undertext">Damage Type</div>
+												<input type="text" name="attr_attack_damage_type1" value="" style="width:80px">
+											</div>
+											<div class="sheet-inline">
+												<div class="sheet-undertext sheet-text-align-left">Damage (Dices)</div>
+												<input type="text" name="attr_attack_damage1" value="" style="width:100px">
+											</div>
+											<div class="sheet-inline">
+												<div class="sheet-undertext sheet-text-align-left">Bonus</div>
+												<input class="sheet-numbbox" type="number" name="attr_attack_damage_bonus1" value="0">
+											</div>
+											<div class="sheet-inline" style="text-align:center;">
+											    <div class="sheet-undertext sheet-text-align-left">Active</div>
+										        <input type="checkbox" checked="checked" name="attr_attack1" value="{{dmgtype1=@{attack_damage_type1}}} {{dmg1=[[@{attack_damage1} + @{attack_damage_bonus1}]]}} {{dmgcrit1=[[@{attack_damage1} + @{attack_damage1} + @{attack_damage_bonus1}]]}}" />
+											</div>
+											<br>
+											<div class="sheet-inline">
+												<div class="sheet-undertext">Damage Type</div>
+												<input type="text" name="attr_attack_damage_type2" value="" style="width:80px">
+											</div>
+											<div class="sheet-inline">
+												<div class="sheet-undertext sheet-text-align-left">Damage (Dices)</div>
+												<input type="text" name="attr_attack_damage2" value="" style="width:100px">
+											</div>
+											<div class="sheet-inline">
+												<div class="sheet-undertext sheet-text-align-left">Bonus</div>
+												<input class="sheet-numbbox" type="number" name="attr_attack_damage_bonus2" value="0">
+											</div>
+											<div class="sheet-inline" style="text-align:center;">
+											    <div class="sheet-undertext sheet-text-align-left">Active</div>
+										        <input type="checkbox" name="attr_attack2" value="{{dmgtype2=@{attack_damage_type2}}} {{dmg2=[[@{attack_damage2} + @{attack_damage_bonus2}]]}} {{dmgcrit2=[[@{attack_damage2} + @{attack_damage2} + @{attack_damage_bonus2}]]}}" />
+											</div>
+											<br>
+											<div class="sheet-inline">
+												<div class="sheet-undertext">Damage Type</div>
+												<input type="text" name="attr_attack_damage_type3" value="" style="width:80px">
+											</div>
+											<div class="sheet-inline">
+												<div class="sheet-undertext sheet-text-align-left">Damage (Dices)</div>
+												<input type="text" name="attr_attack_damage3" value="" style="width:100px">
+											</div>
+											<div class="sheet-inline">
+												<div class="sheet-undertext sheet-text-align-left">Bonus</div>
+												<input class="sheet-numbbox" type="number" name="attr_attack_damage_bonus3" value="0">
+											</div>
+											<div class="sheet-inline" style="text-align:center;">
+											    <div class="sheet-undertext sheet-text-align-left">Active</div>
+										        <input type="checkbox" name="attr_attack3" value="{{dmgtype3=@{attack_damage_type3}}} {{dmg3=[[@{attack_damage3} + @{attack_damage_bonus3}]]}} {{dmgcrit2=[[@{attack_damage3} + @{attack_damage3} + @{attack_damage_bonus3}]]}}" />
+											</div>
+											<div class="sheet-undertext">Description:</div>
+											<textarea class="sheet-paragraph-box" name="attr_attack_desc"></textarea>
+										</div>
+										
+										<!-- end of repeated section -->
+									</fieldset>
+								</div>
+							</div>
+							
+							<!-- end of content -->
+						</div>
+					</td>
+					<td>
+						<!-- spacer -->
+					</td>
+				</tr>
+				<tr>
+					<!-- bottom bar -->
+				</tr>
+			</table>
+		</div>
+		<!-- end combat box -->
+		
+		
+		<!-- END OF COLUMN 2 -->
+
+    <!-- NPC TAB ENDS -->   	    
+        </div></td></tr></table>
+    </div>
+	
+
+	<!-- PC TAB BEGIN -->
+	<div class="sheet-tabbed-pane sheet-pctab">
+		<table class="sheet-columns"><tr>
+		<td class="sheet-column1-cell">
+		<div class="sheet-column1">
+
+	<!-- always present header -->
+	<div class="sheet-header">
+		<div class="sheet-header-block">
+			<div class="sheet-undertext">Character Name</div>
+			<input class="sheet-long-text-input" type="text" name="attr_character_name"/>
+		</div>
+		<div class="sheet-header-block">
+			<div class="sheet-undertext">Race</div>
+			<input class="sheet-long-text-input" type="text" name="attr_race"/>
+		</div>
+		<div class="sheet-header-block">
+			<div class="sheet-undertext">Level</div>
+			<input class="sheet-numbox" type="number" name="attr_level"  min="0" max="40" step="1" value="1"/>
+		</div>
+		<div class="sheet-header-block" >
+			<div class="sheet-undertext">Experience</div>
+			<input class="sheet-numbox" type="number" name="attr_xp" min="0" max="99" step="1" value="0"/>
+		</div>
+		<br>
+		<div class="sheet-header-block">
+			<span class="sheet-big-bold-fancy">Prof.: </span>
+			<input class="sheet-numbox" type="number" name="attr_prof" value="ceil((@{level})/5)" disabled="disabled"  />
+		</div>
+		<div class="sheet-header-block">
+			<button class="sheet-roll sheet-big-bold-fancy-button" type="roll" value="@{hidden_roll} &{template:check} {{name=Initiative}} {{check=[[1d20 + @{initiative_total}]]}} &{tracker}">Initiative: </button>
+			<input class="sheet-numbox" type="number" step="1" name="attr_initiative_bonus" value="0" /> 
+			/ 
+			<input class="sheet-numbox" type="number" name="attr_initiative_total" value="@{initiative_bonus} + @{agility}" disabled="disabled" />
+		</div>
+		<div class="sheet-header-block">
+			<span class="sheet-big-bold-fancy">Speed:</span>
+			<input class="sheet-long-text-input" type="text" name="attr_speed"/>
+		</div>
+	</div>
+	<!-- end of header -->
+	
+	<!-- PC tabs start -->
+	<input type="radio" name="attr_tab_pc" class="sheet-tab-button sheet-pctab-button1" value="1" title="No1" checked="checked"/>
+	<span class="sheet-tab-labelsub">Core</span>
+	<input type="radio" name="attr_tab_pc" class="sheet-tab-button sheet-pctab-button2" value="2" title="No2"/>
+	<span class="sheet-tab-labelsubb">Magic</span>
+	<input type="radio" name="attr_tab_pc" class="sheet-tab-button sheet-pctab-button3" value="3" title="No3"/>
+	<span class="sheet-tab-labelsub">Abilities and Notes</span>
+	<!-- PC tabs end -->
+	
+		<!-- TAB 1 BEGIN -->
+	<div class="sheet-tabbed-pane sheet-tab1">
+		<table class="sheet-columns"><tr>
+		<td class="sheet-column1-cell">
+		<div class="sheet-column1">
+	    
+		<!-- COLUMN 1 -->
+		
+		<!-- ability scores box -->
+		<div>
+			<!-- box -->
+			<table class="sheet-section-layout-table" >
+				<tr>
+					<!-- top bar -->
+				</tr>
+				<tr>
+					<td>
+						<!-- spacer -->
+					</td>
+					<td class="sheet-paper-background">
+						<div class="sheet-section-frame sheet-section-content">
+							<!-- content begin -->
+							
+							<!-- section title bar -->
+							<div class="sheet-section-title-bar sheet-text-align-center">Attributes</div>
+							
+							<table class="sheet-attributesubsection-table sheet-center">
+								<tr>
+									<!-- start of row -->
+									<td>
+										<div class="sheet-big-bold-attribute">Combat</div>
+									</td><td style="vertical-align:middle;">
+										<input class="sheet-numbox" type="number" name="attr_combat" min="-5" step="1" value="-3"/>
+                                    </td>
+                                    <tr>
+								    </tr>
+                                    <td>
+										<div class="sheet-big-bold-attribute">Agility</div>
+									</td><td style="vertical-align:middle;">
+										<input class="sheet-numbox" type="number" name="attr_agility" min="-5" step="1" value="-3"/>
+                                    </td>
+                                    <tr>
+								    </tr>
+                                    <td>
+										<div class="sheet-big-bold-attribute">Constitution</div>
+									</td><td style="vertical-align:middle;">
+										<input class="sheet-numbox" type="number" name="attr_constitution" min="-5" step="1" value="-3"/>
+                                    </td>
+                                    <tr>
+								    </tr>
+                                    <td>
+										<div class="sheet-big-bold-attribute">Resolve</div>
+									</td><td style="vertical-align:middle;">
+										<input class="sheet-numbox" type="number" name="attr_resolve" min="-5" step="1" value="-3"/>
+                                    </td>
+                                    <tr>
+								    </tr>
+                                    <td>
+										<div class="sheet-big-bold-attribute">Magic</div>
+									</td><td style="vertical-align:middle;">
+										<input class="sheet-numbox" type="number" name="attr_Magic" min="-5" step="1" value="-3"/>
+                                    </td>
+                                    <tr>
+								    </tr>
+                                    <td>
+										<div class="sheet-big-bold-attribute">Skill</div>
+									</td><td style="vertical-align:middle;">
+										<input class="sheet-numbox" type="number" name="attr_intellect" min="0" step="1" value="0"/>
+                                    </td>
+                                    <tr>
+                                    </tr>
+									<!-- end of row -->
+								</tr>
+							</table>
+							<!-- end of content -->
+						</div>
+					</td>
+					<td>
+						<!-- spacer -->
+					</td>
+				</tr>
+				<tr>
+					<!-- bottom bar -->
+				</tr>
+			</table>
+		</div>
+		<!-- end ability scores box -->
+		
+		<br>
+		
+		<!-- saving throws box -->
+		<div>
+			<!-- box -->
+			<table class="sheet-section-layout-table" >
+				<tr>
+					<!-- top bar -->
+				</tr>
+				<tr>
+					<td>
+						<!-- spacer -->
+					</td>
+					<td class="sheet-paper-background">
+						<div class="sheet-section-frame sheet-section-content">
+							<!-- content begin -->
+							
+							<!-- section title bar -->
+							<div class="sheet-section-title-bar sheet-text-align-center">Saving Throws</div>
+							
+							<table class="sheet-subsection-table sheet-center">
+								<tr>
+									<!-- header row -->
+									<th class="sheet-header">Saving Throw</th>
+									<th class="sheet-header">Prof.</th>
+									<th class="sheet-header">Bonus</th>
+								</tr>
+								<tr>
+									<!-- start of row -->
+									<td style="text-align: center;">
+										<button class="sheet-roll sheet-big-bold-button" type="roll" value="@{hidden_roll} &{template:check} {{name=Fortitude Saving Throw}} {{check=[[1d20 + @{fortitude_base}+@{fortitude_prof}+@{constitution}]]}} {{checkadv=[[1d20 + @{fortitude_base}+@{fortitude_prof}+@{constitution}]]}}" />Fortitude</button>
+									</td><td style="vertical-align:middle;">
+										<input type="checkbox" name="attr_fortitude_prof" value="@{prof}" />
+									</td><td style="vertical-align:middle;">
+										<input class="sheet-numbox" type="number" name="attr_fortitude_base" min="-5" step="1" value="-5" />
+									</td>
+                                    <tr>
+                                    </tr>
+                                    <td style="text-align: center;">
+										<button class="sheet-roll sheet-big-bold-button" type="roll" value="@{hidden_roll} &{template:check} {{name=Reflex Saving Throw}} {{check=[[1d20 + @{reflex_base}+@{reflex_prof}+@{constitution}]]}} {{checkadv=[[1d20 + @{reflex_base}+@{reflex_prof}+@{constitution}]]}}" />Reflex</button>
+									</td><td style="vertical-align:middle;">
+										<input type="checkbox" name="attr_reflex_prof" value="@{prof}" />
+									</td><td style="vertical-align:middle;">
+										<input class="sheet-numbox" type="number" name="attr_reflex_base" min="-5" step="1" value="-5" />
+									</td>
+                                    <tr>
+                                    </tr>
+                                    <td style="text-align: center;">
+										<button class="sheet-roll sheet-big-bold-button" type="roll" value="@{hidden_roll} &{template:check} {{name=Will Saving Throw}} {{check=[[1d20 + @{will_base}+@{will_prof}+@{constitution}]]}} {{checkadv=[[1d20 + @{will_base}+@{will_prof}+@{constitution}]]}}" />Will</button>
+									</td><td style="vertical-align:middle;">
+										<input type="checkbox" name="attr_will_prof" value="@{prof}" />
+									</td><td style="vertical-align:middle;">
+										<input class="sheet-numbox" type="number" name="attr_will_base" min="-5" step="1" value="-5" />
+									</td>
+                                    <tr>
+                                    </tr>
+									<!-- end of row -->
+								</tr>
+							</table>
+							<!-- end of content -->
+						</div>
+					</td>
+					<td>
+						<!-- spacer -->
+					</td>
+				</tr>
+				<tr>
+					<!-- bottom bar -->
+				</tr>
+			</table>
+		</div>
+		<!-- end saving throws box -->
+		
+		<br>
+		
+<!-- skills box -->
+		<div>
+			<!-- box -->
+			<table class="sheet-section-layout-table" >
+				<tr>
+					<!-- top bar -->
+				</tr>
+				<tr>
+					<td>
+						<!-- spacer -->
+					</td>
+					<td class="sheet-paper-background">
+						<div class="sheet-section-frame sheet-section-content">
+							<!-- content begin -->
+							
+							<!-- section title bar -->
+							<div class="sheet-section-title-bar sheet-text-align-center">Skills</div>
+							<div class="sheet-sectionskills-title-bar sheet-text-align-center">Passive</div>
+							
+							<table class="sheet-subsection-table sheet-center">
+								<tr>
+									<!-- header row -->
+									<th class="sheet-header">Name</th>
+									<th class="sheet-header">Prof.</th>
+									<th class="sheet-header">Bonus</th>
+								</tr>
+								<tr>
+									<!-- start of row -->
+									<td style="text-align: center;">
+										<button class="sheet-roll sheet-skill-button" type="roll" value="@{hidden_roll} &{template:check} {{name=Acrobatics}} {{check=[[1d20 + @{acrobatics_base}+@{acrobatics_prof}]]}} {{checkadv=[[1d20 + @{acrobatics_base}+@{acrobatics_prof}]]}}" />Acrobatics</button>
+									</td><td style="vertical-align:middle;">
+										<input type="checkbox" name="attr_acrobatics_prof" value="@{prof}" />
+									</td><td style="vertical-align:middle;">
+										<input class="sheet-numbox" type="number" name="attr_acrobatics_base" min="-5" step="1" value="-3" />
+									</td>
+                                    <tr>
+                                    </tr>
+                                    <td style="text-align: center;">
+										<button class="sheet-roll sheet-skill-button" type="roll" value="@{hidden_roll} &{template:check} {{name=Deception}} {{check=[[1d20 + @{deception_base}+@{deception_prof}]]}} {{checkadv=[[1d20 + @{deception_base}+@{deception_prof}]]}}" />Deception</button>
+									</td><td style="vertical-align:middle;">
+										<input type="checkbox" name="attr_deception_prof" value="@{prof}" />
+									</td><td style="vertical-align:middle;">
+										<input class="sheet-numbox" type="number" name="attr_deception_base" min="-5" step="1" value="-3" />
+									</td>
+                                    <tr>
+                                    </tr>
+                                    <td style="text-align: center;">
+										<button class="sheet-roll sheet-skill-button" type="roll" value="@{hidden_roll} &{template:check} {{name=Insight}} {{check=[[1d20 + @{insight_base}+@{insight_prof}]]}} {{checkadv=[[1d20 + @{insight_base}+@{insight_prof}]]}}" />Insight</button>
+									</td><td style="vertical-align:middle;">
+										<input type="checkbox" name="attr_insight_prof" value="@{prof}" />
+									</td><td style="vertical-align:middle;">
+										<input class="sheet-numbox" type="number" name="attr_insight_base" min="-5" step="1" value="-3" />
+									</td>
+                                    <tr>
+                                    </tr>
+                                    <td style="text-align: center;">
+										<button class="sheet-roll sheet-skill-button" type="roll" value="@{hidden_roll} &{template:check} {{name=Intimidation}} {{check=[[1d20 + @{intimidation_base}+@{intimidation_prof}]]}} {{checkadv=[[1d20 + @{intimidation_base}+@{intimidation_prof}]]}}" />Intimidation</button>
+									</td><td style="vertical-align:middle;">
+										<input type="checkbox" name="attr_intimidation_prof" value="@{prof}" />
+									</td><td style="vertical-align:middle;">
+										<input class="sheet-numbox" type="number" name="attr_intimidation_base" min="-5" step="1" value="-3" />
+									</td>
+                                    <tr>
+                                    </tr>
+                                    <td style="text-align: center;">
+										<button class="sheet-roll sheet-skill-button" type="roll" value="@{hidden_roll} &{template:check} {{name=Perception}} {{check=[[1d20 + @{perception_base}+@{perception_prof}]]}} {{checkadv=[[1d20 + @{perception_base}+@{perception_prof}]]}}" />Perception</button>
+									</td><td style="vertical-align:middle;">
+										<input type="checkbox" name="attr_perception_prof" value="@{prof}" />
+									</td><td style="vertical-align:middle;">
+										<input class="sheet-numbox" type="number" name="attr_perception_base" min="-5" step="1" value="-3" />
+									</td>
+                                    <tr>
+                                    </tr>
+                                    <td style="text-align: center;">
+										<button class="sheet-roll sheet-skill-button" type="roll" value="@{hidden_roll} &{template:check} {{name=Persuasion}} {{check=[[1d20 + @{persuasion_base}+@{persuasion_prof}]]}} {{checkadv=[[1d20 + @{persuasion_base}+@{persuasion_prof}]]}}" />Persuasion</button>
+									</td><td style="vertical-align:middle;">
+										<input type="checkbox" name="attr_persuasion_prof" value="@{prof}" />
+									</td><td style="vertical-align:middle;">
+										<input class="sheet-numbox" type="number" name="attr_persuasion_base" min="-5" step="1" value="-3" />
+									</td>
+                                    <tr>
+                                    </tr>
+                                    <td style="text-align: center;">
+										<button class="sheet-roll sheet-skill-button" type="roll" value="@{hidden_roll} &{template:check} {{name=Strength}} {{check=[[1d20 + @{strength_base}+@{strength_prof}]]}} {{checkadv=[[1d20 + @{strength_base}+@{strength_prof}]]}}" />Strength</button>
+									</td><td style="vertical-align:middle;">
+										<input type="checkbox" name="attr_strength_prof" value="@{prof}" />
+									</td><td style="vertical-align:middle;">
+										<input class="sheet-numbox" type="number" name="attr_strength_base" min="-5" step="1" value="-3" />
+									</td>
+                                    <tr>
+                                    </tr>
+									<!-- end of row -->
+								</tr>
+							</table>
+							<div class="sheet-sectionskills-title-bar sheet-text-align-center" style="margin-top: 20px;">Academic</div>
+							
+							<table class="sheet-subsection-table sheet-center">
+								<tr>
+									<!-- header row -->
+									<th class="sheet-header">Known</th>
+									<th class="sheet-header">Name</th>
+									<th class="sheet-header">Prof.</th>
+									<th class="sheet-header">Bonus</th>
+								</tr>
+								<tr>
+									<!-- start of row -->
+									<td style="text-align:center; vertical-align: middle;">
+										<input type="checkbox" name="attr_arcana_known" />
+									</td><td style="vertical-align:middle;">
+										<button class="sheet-roll sheet-skill-button" type="roll" value="@{hidden_roll} &{template:check} {{name=Arcana}} {{check=[[1d20 + @{arcana_base}+@{arcana_prof}]]}} {{checkadv=[[1d20 + @{arcana_base}+@{arcana_prof}]]}}" />Arcana</button>
+									</td><td style="vertical-align:middle;">
+										<input type="checkbox" name="attr_arcana_prof" value="@{prof}" />
+									</td><td style="vertical-align:middle;">
+										<input class="sheet-numbox" type="number" name="attr_arcana_base" min="-5" step="1" value="-3" />
+                                    </td>
+                                    <tr>
+                                    </tr>
+                                    <td style="text-align:center; vertical-align: middle;">
+										<input type="checkbox" name="attr_etiquette_known" />
+									</td><td style="vertical-align:middle;">
+										<button class="sheet-roll sheet-skill-button" type="roll" value="@{hidden_roll} &{template:check} {{name=Etiquette}} {{check=[[1d20 + @{etiquette_base}+@{etiquette_prof}]]}} {{checkadv=[[1d20 + @{etiquette_base}+@{etiquette_prof}]]}}" />Etiquette</button>
+									</td><td style="vertical-align:middle;">
+										<input type="checkbox" name="attr_etiquette_prof" value="@{prof}" />
+									</td><td style="vertical-align:middle;">
+										<input class="sheet-numbox" type="number" name="attr_etiquette_base" min="-5" step="1" value="-3" />
+                                    </td>
+                                    <tr>
+                                    </tr>
+                                    <td style="text-align:center; vertical-align: middle;">
+										<input type="checkbox" name="attr_engineering_known" />
+									</td><td style="vertical-align:middle;">
+										<button class="sheet-roll sheet-skill-button" type="roll" value="@{hidden_roll} &{template:check} {{name=Engineering}} {{check=[[1d20 + @{engineering_base}+@{engineering_prof}]]}} {{checkadv=[[1d20 + @{engineering_base}+@{engineering_prof}]]}}" />Engineering</button>
+									</td><td style="vertical-align:middle;">
+										<input type="checkbox" name="attr_engineering_prof" value="@{prof}" />
+									</td><td style="vertical-align:middle;">
+										<input class="sheet-numbox" type="number" name="attr_engineering_base" min="-5" step="1" value="-3" />
+                                    </td>
+                                    <tr>
+                                    </tr>
+                                    <td style="text-align:center; vertical-align: middle;">
+										<input type="checkbox" name="attr_history_known" />
+									</td><td style="vertical-align:middle;">
+										<button class="sheet-roll sheet-skill-button" type="roll" value="@{hidden_roll} &{template:check} {{name=History}} {{check=[[1d20 + @{history_base}+@{history_prof}]]}} {{checkadv=[[1d20 + @{history_base}+@{history_prof}]]}}" />History</button>
+									</td><td style="vertical-align:middle;">
+										<input type="checkbox" name="attr_history_prof" value="@{prof}" />
+									</td><td style="vertical-align:middle;">
+										<input class="sheet-numbox" type="number" name="attr_history_base" min="-5" step="1" value="-3" />
+                                    </td>
+                                    <tr>
+                                    </tr>
+                                    <td style="text-align:center; vertical-align: middle;">
+										<input type="checkbox" name="attr_investigation_known" />
+									</td><td style="vertical-align:middle;">
+										<button class="sheet-roll sheet-skill-button" type="roll" value="@{hidden_roll} &{template:check} {{name=Investigation}} {{check=[[1d20 + @{investigation_base}+@{investigation_prof}]]}} {{checkadv=[[1d20 + @{investigation_base}+@{investigation_prof}]]}}" />Investigation</button>
+									</td><td style="vertical-align:middle;">
+										<input type="checkbox" name="attr_investigation_prof" value="@{prof}" />
+									</td><td style="vertical-align:middle;">
+										<input class="sheet-numbox" type="number" name="attr_investigation_base" min="-5" step="1" value="-3" />
+                                    </td>
+                                    <tr>
+                                    </tr>
+                                    <td style="text-align:center; vertical-align: middle;">
+										<input type="checkbox" name="attr_nature_known" />
+									</td><td style="vertical-align:middle;">
+										<button class="sheet-roll sheet-skill-button" type="roll" value="@{hidden_roll} &{template:check} {{name=Nature}} {{check=[[1d20 + @{nature_base}+@{nature_prof}]]}} {{checkadv=[[1d20 + @{nature_base}+@{nature_prof}]]}}" />Nature</button>
+									</td><td style="vertical-align:middle;">
+										<input type="checkbox" name="attr_nature_prof" value="@{prof}" />
+									</td><td style="vertical-align:middle;">
+										<input class="sheet-numbox" type="number" name="attr_nature_base" min="-5" step="1" value="-3" />
+                                    </td>
+                                    <tr>
+                                    </tr>
+                                    <td style="text-align:center; vertical-align: middle;">
+										<input type="checkbox" name="attr_medicine_known" />
+									</td><td style="vertical-align:middle;">
+										<button class="sheet-roll sheet-skill-button" type="roll" value="@{hidden_roll} &{template:check} {{name=Medicine}} {{check=[[1d20 + @{medicine_base}+@{medicine_prof}]]}} {{checkadv=[[1d20 + @{medicine_base}+@{medicine_prof}]]}}" />Medicine</button>
+									</td><td style="vertical-align:middle;">
+										<input type="checkbox" name="attr_medicine_prof" value="@{prof}" />
+									</td><td style="vertical-align:middle;">
+										<input class="sheet-numbox" type="number" name="attr_medicine_base" min="-5" step="1" value="-3" />
+                                    </td>
+                                    <tr>
+                                    </tr>
+                                    <td style="text-align:center; vertical-align: middle;">
+										<input type="checkbox" name="attr_performance_known" />
+									</td><td style="vertical-align:middle;">
+										<button class="sheet-roll sheet-skill-button" type="roll" value="@{hidden_roll} &{template:check} {{name=Performance}} {{check=[[1d20 + @{performance_base}+@{performance_prof}]]}} {{checkadv=[[1d20 + @{performance_base}+@{performance_prof}]]}}" />Performance</button>
+									</td><td style="vertical-align:middle;">
+										<input type="checkbox" name="attr_performance_prof" value="@{prof}" />
+									</td><td style="vertical-align:middle;">
+										<input class="sheet-numbox" type="number" name="attr_performance_base" min="-5" step="1" value="-3" />
+                                    </td>
+                                    <tr>
+                                    </tr>
+                                    <td style="text-align:center; vertical-align: middle;">
+										<input type="checkbox" name="attr_sleighofhands_known" />
+									</td><td style="vertical-align: middle;">
+										<button class="sheet-roll sheet-skill-button" type="roll" value="@{hidden_roll} &{template:check} {{name=Sleigh of Hands}} {{check=[[1d20 + @{sleighofhands_base}+@{sleighofhands_prof}]]}} {{checkadv=[[1d20 + @{sleighofhands_base}+@{sleighofhands_prof}]]}}" />Sleigh of Hands</button>
+									</td><td style="vertical-align:middle;">
+										<input type="checkbox" name="attr_sleighofhands_prof" value="@{prof}" />
+									</td><td style="vertical-align:middle;">
+										<input class="sheet-numbox" type="number" name="attr_sleighofhands_base" min="-5" step="1" value="-3" />
+                                    </td>
+                                    <tr>
+                                    </tr>
+                                    <td style="text-align:center; vertical-align: middle;">
+										<input type="checkbox" name="attr_stealth_known" />
+									</td><td style="vertical-align:middle;">
+										<button class="sheet-roll sheet-skill-button" type="roll" value="@{hidden_roll} &{template:check} {{name=Stealth}} {{check=[[1d20 + @{stealth_base}+@{stealth_prof}]]}} {{checkadv=[[1d20 + @{stealth_base}+@{stealth_prof}]]}}" />Stealth</button>
+									</td><td style="vertical-align:middle;">
+										<input type="checkbox" name="attr_stealth_prof" value="@{prof}" />
+									</td><td style="vertical-align:middle;">
+										<input class="sheet-numbox" type="number" name="attr_stealth_base" min="-5" step="1" value="-3" />
+                                    </td>
+                                    <tr>
+                                    </tr>
+                                    <td style="text-align:center; vertical-align: middle;">
+										<input type="checkbox" name="attr_survival_known" />
+									</td><td style="vertical-align:middle;">
+										<button class="sheet-roll sheet-skill-button" type="roll" value="@{hidden_roll} &{template:check} {{name=Survival}} {{check=[[1d20 + @{survival_base}+@{survival_prof}]]}} {{checkadv=[[1d20 + @{survival_base}+@{survival_prof}]]}}" />Survival</button>
+									</td><td style="vertical-align:middle;">
+										<input type="checkbox" name="attr_survival_prof" value="@{prof}" />
+									</td><td style="vertical-align:middle;">
+										<input class="sheet-numbox" type="number" name="attr_survival_base" min="-5" step="1" value="-3" />
+                                    </td>
+                                    <tr>
+                                    </tr>
+									<!-- end of row -->
+								</tr>
+							</table>
+							<!-- end of content -->
+							<div class="sheet-sectionskills-title-bar sheet-text-align-center" style="margin-top: 20px;">Professions</div>
+							
+							<table class="sheet-subsection-table sheet-center">
+								<tr>
+									<!-- header row -->
+									<th class="sheet-header">Known</th>
+									<th class="sheet-header">Name</th>
+									<th class="sheet-header">Prof.</th>
+									<th class="sheet-header">Bonus</th>
+								</tr>
+								<tr>
+									<!-- start of row -->
+									<td style="text-align:center; vertical-align: middle;">
+										<input type="checkbox" name="attr__known" />
+									</td><td style="vertical-align:middle;">
+										<button class="sheet-roll sheet-skill-button" type="roll" value="@{hidden_roll} &{template:check} {{name=}} {{check=[[1d20 + @{_base}+@{_prof}]]}} {{checkadv=[[1d20 + @{_base}+@{_prof}]]}}" />NNR</button>
+									</td><td style="vertical-align:middle;">
+										<input type="checkbox" name="attr__prof" value="@{prof}" />
+									</td><td style="vertical-align:middle;">
+										<input class="sheet-numbox" type="number" name="attr__base" min="-5" step="1" value="-3" />
+                                    </td>
+                                    <tr>
+                                    </tr>
+									<!-- end of row -->
+								</tr>
+							</table>
+							<!-- end of content -->
+						</div>
+					</td>
+					<td>
+						<!-- spacer -->
+					</td>
+				</tr>
+				<tr>
+					<!-- bottom bar -->
+				</tr>
+			</table>
+		</div>
+        <!-- end skills box -->
+        
+		
+				
+		<!-- END OF COLUMN 1 -->
+		
+		</div>
+		</td><td class="sheet-column2-cell">
+		<div class="sheet-column2">
+		<!-- COLUMN 2 -->
+		
+		<!-- combat box -->
+		<div>
+			<!-- box -->
+			<table class="sheet-section-layout-table" >
+				<tr>
+					<!-- top bar -->
+				</tr>
+				<tr>
+					<td>
+						<!-- spacer -->
+					</td>
+					<td class="sheet-paper-background">
+						<div class="sheet-section-frame sheet-section-content">
+							<!-- content begin -->
+							
+							<!-- section title bar -->
+							<div class="sheet-section-title-bar sheet-text-align-center">Combat</div>
+							
+							<div class="sheet-subsection-nontable-row" style="border-bottom: none;">
+							    <div class="sheet-inline">
+							        <div class="sheet-undertext" >&nbsp;</div>AC: </div>
+								<div class="sheet-inline">
+							        <div class="sheet-undertext">&nbsp;</div>
+									<input class="sheet-numbox" style="width: 3em" type="number" name="attr_ac" value="@{ac_base} + @{ac_ability} + @{ac_other}" disabled="disabled"/>
+								</div>
+								<div class="sheet-inline">
+							        <div class="sheet-undertext">&nbsp;</div>
+							    	=
+							    </div>
+								<div class="sheet-inline">
+									<div class="sheet-undertext sheet-text-align-center">Armor</div>
+									<input class="sheet-numbox" style="width: 3em" type="number" name="attr_ac_base" min="1" step="1" value="10" />
+								</div>
+								<div class="sheet-inline">
+							        <div class="sheet-undertext">&nbsp;</div>
+							    	+
+							    </div>
+								<div class="sheet-inline">
+									<div class="sheet-undertext sheet-text-align-center">Attribute</div>
+									<select class="sheet-numbox" style="width: 8em" name="attr_ac_ability">
+										<option value="@{agility}">Agility</option>
+										<option value="@{constitution}">Constitution</option>
+										<option value="0">None</option>
+									</select>
+								</div>
+								<div class="sheet-inline">
+							        <div class="sheet-undertext">&nbsp;</div>
+							    	+
+							    </div>
+								<div class="sheet-inline">
+									<div class="sheet-undertext sheet-text-align-center">Bonus</div>
+									<input class="sheet-numbox" style="width: 3em" type="number" name="attr_ac_other" step="1" value="0" />
+								</div>
+							</div>
+							<div class="sheet-subsection-nontable-row">
+							
+								<div class="sheet-half-width">
+									<div class="sheet-undertext">Equipped Armor</div>
+									<input style="width:100%;" type="text" name="attr_armor_equipped"/>
+								</div>
+								<div class="sheet-half-width">
+									<div class="sheet-undertext">Equipped Shield</div>
+									<input style="width:100%;" type="text" name="attr_shield_equipped"/>
+								</div>
+								<br>
+									<div class="sheet-undertext">Equipped Weapons</div>
+									<input style="width:100%;" type="text" name="attr_weapons_equipped"/>
+								<br>
+									<div class="sheet-undertext">Attuned Magic Items</div>
+									<textarea class="sheet-paragraph-box" name="attr_magicitems_equipped"></textarea>
+								<br>
+									<div class="sheet-undertext">Other Equipment</div>
+									<textarea class="sheet-paragraph-box" name="attr_other_equipped"></textarea>
+							</div>
+							
+							<div class="sheet-subsection-nontable-row">
+							    <div class="sheet-inline" >
+							        <div class="sheet-undertext">&nbsp;</div>
+    							</div>
+    							<div class="sheet-inline" >
+							        <div class="sheet-undertext">&nbsp;</div>
+    								Health: (
+								</div>
+								<div class="sheet-inline">
+									<div class="sheet-undertext sheet-text-align-center">Temp.</div>
+									<input class="sheet-numbox" style="width: 3em;" type="number" name="attr_hp_temp" min="0" step="1" value="0" />
+								</div>
+								 <div class="sheet-inline" >
+							        <div class="sheet-undertext">&nbsp;</div>
+    								)
+    							</div>
+								<div class="sheet-inline">
+									<div class="sheet-undertext sheet-text-align-center">Current</div>
+									<input class="sheet-numbox" style="width: 4em;" type="number" name="attr_hp" min="0" step="1" value="1" />
+								</div>
+								 <div class="sheet-inline" >
+							        <div class="sheet-undertext">&nbsp;</div>
+    								/
+    							</div>
+								<div class="sheet-inline">
+									<div class="sheet-undertext sheet-text-align-center">Max</div>
+									<input class="sheet-numbox" style="width: 4em;" type="number" name="attr_hp_max" min="1" step="1" value="1" />
+								</div>
+							</div>
+							<div class="sheet-subsection-nontable-row">
+							    <div class="sheet-inline" >
+							        <div class="sheet-undertext">&nbsp;</div>
+    							</div>
+    							<div class="sheet-inline" >
+							        <div class="sheet-undertext">&nbsp;</div>
+    								Skill Points: 
+								</div>
+								<div class="sheet-inline">
+									<div class="sheet-undertext">Current</div>
+									<input class="sheet-numbox" style="width: 4em;" type="number" name="attr_skill_current" min="0" step="1" value="1" />
+								</div>
+								 <div class="sheet-inline" >
+							        <div class="sheet-undertext">&nbsp;</div>
+    								/
+    							</div>
+								<div class="sheet-inline">
+									<div class="sheet-undertext sheet-text-align-center">Max</div>
+									<input class="sheet-numbox" style="width: 4em;" type="number" name="attr_skill_max" min="1" step="1" value="1" />
+								</div>
+							</div>
+							<div class="sheet-subsection-nontable-row" style="border-bottom: none; text-align: center;">
+							    <div class="sheet-inline">
+							        <button class="sheet-roll sheet-undertext-button" type="roll" value="@{hidden_roll} &{template:check} {{name=Death's Door Resolve}} {{check=[[1d20 + 1 + @{resolve} + @{ddr_roll_bonus}]]}} {{checkadv=[[1d20 + @{resolve} + @{ddr_roll_bonus}]]}}">Death's Door Resolve</button>
+								</div>
+							</div>
+							<div class="sheet-subsection-nontable-row" style="border-bottom: none; border-top: none;">
+							    <div class="sheet-inline">
+							        <div class="sheet-undertext">&nbsp;</div>Uses: </div>
+								<div class="sheet-inline">
+									<div class="sheet-undertext sheet-text-align-center">Current</div>
+									<input class="sheet-numbox" style="width: 3em" type="number" name="attr_ddr_current" min="0" step="1" value="0" />
+								</div>
+								 <div class="sheet-inline" >
+							        <div class="sheet-undertext">&nbsp;</div>
+    								/
+    							</div>
+								<div class="sheet-inline">
+									<div class="sheet-undertext sheet-text-align-center">Max</div>
+									<input class="sheet-numbox" style="width: 3em" type="number" name="attr_ddr_max" />
+								</div>
+								<div class="sheet-inline sheet-text-align-center" style="width: 55px">
+									<div class="sheet-undertext">Roll Bonus</div>
+									<input class="sheet-numbox" style="width: 3em" type="number" name="attr_ddr_roll_bonus" min="-5" step="1" value="0" />
+								</div>
+								<div class="sheet-inline" style="text-align:center; width: 95px">
+									<div class="sheet-undertext">Death's Door Save</div>
+									<input class="sheet-numbox" style="width: 3em" name="attr_dds" value="1" />
+								</div>
+							</div>
+							<div class="sheet-subsection-nontable-row" style="border-bottom: 1pt solid #808080; border-top: 2pt solid #808080;">
+								<div style="text-align: center; font-size: 20px; font-weight: bold;">Attacks</div>
+								<!-- set of entry boxes -->
+								<div class="sheet-entry-array">
+									<fieldset class="repeating_attacks sheet-repeater-fieldset">
+										<!-- start of repeated section -->
+										
+										<div class="sheet-repeated-entry" >
+											<div class="sheet-inline">
+												<div class="sheet-undertext">Weapon</div>
+												<input type="text" name="attr_attack_name" value="" style="width:90%">
+											</div>
+											<div class="sheet-inline">
+												<div class="sheet-undertext">Attack Bonus</div>
+												<input class="sheet-numbox" type="number" name="attr_attack_bonus" value="@{attack_ability_mod} + @{attack_mod_other} + @{attack_prof}" disabled="disabled"/>
+											</div>
+											<div class="sheet-inline">
+											    <div class="sheet-undertext">&nbsp;</div>
+												<button class="sheet-roll-button" type="roll" value="@{hidden_roll} &{template:attack} {{name=@{attack_name}}} {{desc=@{attack_desc}}} {{range=@{range}}} {{attack=[[1d@{attack_crit_range} + @{attack_bonus}]]}} {{attackadv=[[1d@{attack_crit_range} +@{attack_bonus}]]}} @{attack1} @{attack2} @{attack3}" name="roll_attack"></button>
+											</div>
+											<br>
+											<div class="sheet-inline">
+												<div class="sheet-undertext">&nbsp;</div>Range:
+												<input class="text" type="text" name="attr_range" style="width:100px">
+											</div>
+											<br>
+											<div class="sheet-inline" style="width: 16px"> </div>
+											<div class="sheet-inline">
+												<div class="sheet-undertext sheet-text-align-center">Attribute</div>
+												<select class="sheet-numbox"  style="width: 6em" name="attr_attack_ability_mod">
+													<option value="@{combat}">Combat</option>
+													<option value="@{agility}">Agility</option>
+													<option value="@{magic}">Magic</option>
+													<option value="0">None</option>
+												</select>
+											</div>
+											<div class="sheet-inline">
+												<div class="sheet-undertext sheet-text-align-center">Prof.</div>
+												<select class="sheet-numbox"  style="width:4.5em" name="attr_attack_prof">
+													<option value="@{prof}">Yes</option>
+													<option value="0">No</option>
+												</select>
+											</div>
+											<div class="sheet-inline">
+												<div class="sheet-undertext sheet-text-align-center">Misc. Mod.</div>
+												<input class="sheet-numbox" type="number" name="attr_attack_mod_other" step="1" value="0" />
+											</div>
+											<div class="sheet-inline">
+												<div class="sheet-undertext sheet-text-align-center">Crit Range</div>
+												<input class="sheet-numbox" type="number" name="attr_attack_crit_range" step="1" value="20" />
+											</div>
+											<br>
+											<div class="sheet-inline">
+												<div class="sheet-undertext">Damage Type</div>
+												<input type="text" name="attr_attack_damage_type1" value="" style="width:80px">
+											</div>
+											<div class="sheet-inline">
+												<div class="sheet-undertext sheet-text-align-left">Damage (Dices)</div>
+												<input type="text" name="attr_attack_damage1" value="" style="width:100px">
+											</div>
+											<div class="sheet-inline">
+												<div class="sheet-undertext sheet-text-align-left">Bonus</div>
+												<input class="sheet-numbbox" type="number" name="attr_attack_damage_bonus1" value="0">
+											</div>
+											<div class="sheet-inline" style="text-align:center;">
+											    <div class="sheet-undertext sheet-text-align-left">Active</div>
+										        <input type="checkbox" checked="checked" name="attr_attack1" value="{{dmgtype1=@{attack_damage_type1}}} {{dmg1=[[@{attack_damage1} + @{attack_damage_bonus1} +@{combat}]]}} {{dmgcrit1=[[@{attack_damage1} + @{attack_damage1} +@{combat} + @{attack_damage_bonus1}]]}}" />
+											</div>
+											<br>
+											<div class="sheet-inline">
+												<div class="sheet-undertext">Damage Type</div>
+												<input type="text" name="attr_attack_damage_type2" value="" style="width:80px">
+											</div>
+											<div class="sheet-inline">
+												<div class="sheet-undertext sheet-text-align-left">Damage (Dices)</div>
+												<input type="text" name="attr_attack_damage2" value="" style="width:100px">
+											</div>
+											<div class="sheet-inline">
+												<div class="sheet-undertext sheet-text-align-left">Bonus</div>
+												<input class="sheet-numbbox" type="number" name="attr_attack_damage_bonus2" value="0">
+											</div>
+											<div class="sheet-inline" style="text-align:center;">
+											    <div class="sheet-undertext sheet-text-align-left">Active</div>
+										        <input type="checkbox" name="attr_attack2" value="{{dmgtype2=@{attack_damage_type2}}} {{dmg2=[[@{attack_damage2} + @{attack_damage_bonus2} +@{combat}]]}} {{dmgcrit2=[[@{attack_damage2} + @{attack_damage2} +@{combat} + @{attack_damage_bonus2}]]}}" />
+											</div>
+											<br>
+											<div class="sheet-inline">
+												<div class="sheet-undertext">Damage Type</div>
+												<input type="text" name="attr_attack_damage_type3" value="" style="width:80px">
+											</div>
+											<div class="sheet-inline">
+												<div class="sheet-undertext sheet-text-align-left">Damage (Dices)</div>
+												<input type="text" name="attr_attack_damage3" value="" style="width:100px">
+											</div>
+											<div class="sheet-inline">
+												<div class="sheet-undertext sheet-text-align-left">Bonus</div>
+												<input class="sheet-numbbox" type="number" name="attr_attack_damage_bonus3" value="0">
+											</div>
+											<div class="sheet-inline" style="text-align:center;">
+											    <div class="sheet-undertext sheet-text-align-left">Active</div>
+										        <input type="checkbox" name="attr_attack3" value="{{dmgtype3=@{attack_damage_type3}}} {{dmg3=[[@{attack_damage3} + @{attack_damage_bonus3} +@{combat}]]}} {{dmgcrit3=[[@{attack_damage3} + @{attack_damage3} + @{attack_damage_bonus3} +@{combat}]]}}" />
+											</div>
+											<div class="sheet-undertext">Description:</div>
+											<textarea class="sheet-paragraph-box" name="attr_attack_desc"></textarea>
+										</div>
+										
+										<!-- end of repeated section -->
+									</fieldset>
+								</div>
+							</div>
+							
+							<!-- end of content -->
+						</div>
+					</td>
+					<td>
+						<!-- spacer -->
+					</td>
+				</tr>
+				<tr>
+					<!-- bottom bar -->
+				</tr>
+			</table>
+		</div>
+		<!-- end combat box -->
+		
+		
+		<!-- END OF COLUMN 2 -->
+		</div></td></tr></table>
+		
+	</div>
+	
+	<!-- TAB 1 END -->
+	
+		<!-- TAB 2 START -->
+	<div class="sheet-tabbed-pane sheet-tab2">
+		
+		<table class="sheet-columns"><tr>
+		<td class="sheet-column1-cell">
+		<div class="sheet-column1">
+		<!-- COLUMN 1 -->
+		
+		<!-- contacts box -->
+		<div>
+			<!-- box -->
+			<table class="sheet-section-layout-table" >
+				<tr>
+					<td>
+						<!-- spacer -->
+					</td>
+					<td class="sheet-paper-background">
+						<div class="sheet-section-frame sheet-section-content">
+							<!-- content begin -->
+							
+							<!-- section title bar -->
+							<div class="sheet-section-title-bar sheet-text-align-center">
+								Spellcasting
+							</div>
+							
+							<!-- known spells -->
+							<div class="sheet-subsection-nontable-row">
+								<div class="sheet-inline" >
+							        <div class="sheet-undertext">&nbsp;</div>
+    							</div>
+    							<div class="sheet-inline" >
+							        <div class="sheet-undertext">&nbsp;</div>
+    								Mana:
+    							</div>
+								<div class="sheet-inline">
+									<div class="sheet-undertext sheet-text-align-center">Current</div>
+									<input class="sheet-numbox" style="width: 3em;" type="number" name="attr_mana" />
+								</div>
+								<div class="sheet-inline" >
+							        <div class="sheet-undertext">&nbsp;</div>
+    								/
+    							</div>
+								<div class="sheet-inline">
+									<div class="sheet-undertext sheet-text-align-center">Max</div>
+									<input class="sheet-numbox" style="width: 3em;" type="number" name="attr_mana_max" value"0" />
+								</div>
+									<div class="sheet-inline" >
+							        <div class="sheet-undertext">&nbsp;</div>
+    							</div>
+    							<div class="sheet-inline" >
+							        <div class="sheet-undertext">&nbsp;</div>
+    								Magic Tier:
+    							</div>
+								<div class="sheet-inline">
+									<div class="sheet-undertext sheet-text-align-center">&nbsp;</div>
+									<input class="sheet-numbox" style="width: 3em;" type="number" name="attr_magictier" />
+								</div>
+							</div>
+							<div class="sheet-subsection-nontable-row">
+								<div class="sheet-inline">
+								    <div class="sheet-undertext">&nbsp;</div>
+									Attack:
+									<input class="sheet-numbox" type="number" name="attr_spellattack" value="8 + @{prof} + @{magic} + @{spellattack_bonus}" disabled="disabled"/>
+								</div>
+								<div class="sheet-inline">
+								    <div class="sheet-undertext">Attack Bonus</div>
+									<input class="sheet-numbox" style="width: 3em;" type="number" name="attr_spellattack_bonus" step="1" min="0" value="0" />
+							    </div>
+                            <br>
+								<div class="sheet-inline">
+								    <div class="sheet-undertext">&nbsp;</div>
+									Save DC:
+								</div>
+								<div class="sheet-inline">
+								    <div class="sheet-undertext">&nbsp;</div>
+                                    <input class="sheet-numbox" type="number" name="attr_spelldc" value="[[8 + @{prof} + @{magic} + @{spelldc_bonus}]]" disabled="disabled"/>
+								</div>
+								<div class="sheet-inline">
+								    <div class="sheet-undertext">DC Bonus</div>
+									<input class="sheet-numbox" style="width: 3em;" type="number" name="attr_spelldc_bonus" step="1" min="0" value="0" />
+								</div>
+							</div>
+						    
+							<div class="sheet-subsection-nontable-row" style="border-bottom: 1pt solid #808080;">
+							    <div class="sheet-inline" >
+							        <div class="sheet-undertext">&nbsp;</div>
+    							</div>
+    							<div class="sheet-inline" >
+							        <div class="sheet-undertext">&nbsp;</div>
+    								Known Spells:  
+								</div>
+								 <div class="sheet-inline" >
+							        <div class="sheet-undertext">&nbsp;</div>
+    							</div>
+								<div class="sheet-inline">
+									<div class="sheet-undertext sheet-text-align-center">Used</div>
+									<input class="sheet-numbox" style="width: 3em;" type="number" name="attr_knownspells_used" min="0" step="1" value="0" />
+								</div>
+								 <div class="sheet-inline" >
+							        <div class="sheet-undertext">&nbsp;</div>
+    								/
+    							</div>
+								<div class="sheet-inline">
+									<div class="sheet-undertext sheet-text-align-center">Max</div>
+									<input class="sheet-numbox" style="width: 3em;" type="number" name="attr_knownspells_max" value="@{magictier}*2 + @{prof} +@{knownspells_bonus}" disabled="disabled" />
+								</div>
+								<div class="sheet-inline">
+									<div class="sheet-undertext sheet-text-align-center">Bonus</div>
+									<input class="sheet-numbox" style="width: 3em;" type="number" name="attr_knownspells_bonus"/>
+								</div>
+							</div>
+							<div class="sheet-subsection-nontable-row" style="border-bottom: none;">
+							    <div class="sheet-inline" >
+							        <div class="sheet-undertext">&nbsp;</div>
+    							</div>
+    							<div class="sheet-inline" >
+							        <div class="sheet-undertext">&nbsp;</div>
+    								Known Tomes:  
+								</div>
+								 <div class="sheet-inline" >
+							        <div class="sheet-undertext">&nbsp;</div>
+    							</div>
+								<div class="sheet-inline">
+									<div class="sheet-undertext sheet-text-align-center">Used</div>
+									<input class="sheet-numbox" style="width: 3em;" type="number" name="attr_knowntomes_used" min="0" step="1" value="1" />
+								</div>
+								 <div class="sheet-inline" >
+							        <div class="sheet-undertext">&nbsp;</div>
+    								/
+    							</div>
+								<div class="sheet-inline">
+									<div class="sheet-undertext sheet-text-align-center">Max</div>
+									<input class="sheet-numbox" style="width: 3em;" type="number" name="attr_knowntomes_max" value="4 + @{knowntomes_bonus}" disabled="disabled" />
+								</div>
+								<div class="sheet-inline">
+									<div class="sheet-undertext sheet-text-align-center">Bonus</div>
+									<input class="sheet-numbox" style="width: 3em;" type="number" name="attr_knowntomes_bonus"/>
+								</div>
+							</div>
+							            <div class="sheet-subsection-nontable-row" style="border-bottom: none; border-top: none;">
+						            	    
+							            	<div class="sheet-half-width">
+							            		<div class="sheet-undertext">Tome Name</div>
+								            	<input style="width:100%;" type="text" name="attr_tome_name"/>
+							           	    </div>
+							                <div class="sheet-half-width">
+								            	<div class="sheet-undertext">Spell Slots</div>
+								            	<input class="numbox" style="width: 3em;" type="number" value="0" name="attr_tome_known"/>
+							                </div>
+							            </div>
+							<!-- set of entry boxes -->
+								<div class="sheet-entry-array">
+									<fieldset class="repeating_attacks sheet-repeater-fieldset">
+										<!-- start of repeated section -->
+										
+						            	<div class="sheet-subsection-nontable-row" style="border-bottom: 1pt solid #808080; border-top: none;">
+						            	    
+							            	<div class="sheet-half-width">
+							            		<div class="sheet-undertext">Tome Name</div>
+								            	<input style="width:100%;" type="text" name="attr_tome_name_rep"/>
+							           	    </div>
+							                <div class="sheet-half-width">
+								            	<div class="sheet-undertext">Spell Slots</div>
+								            	<input class="numbox" style="width: 3em;" type="number" value="1" name="attr_tome_known_rep"/>
+							                </div>
+							            </div>
+                                    <!-- end of repeated section -->
+									</fieldset>	
+								</div>
+							<!-- end of entry boxes -->
+							
+							<!-- end of content -->
+							</div>
+					</td>
+					<td>
+						<!-- spacer -->
+					</td>
+				</tr>
+			</table>
+		</div>
+		<!-- end contacts box -->
+		
+		<!-- END OF COLUMN 1 -->
+		</div>
+		</td><td class="sheet-column2-cell">
+		<div class="sheet-column2">
+		<!-- COLUMN 2 -->
+		
+		<!-- notes box -->
+		<div>
+			<!-- box -->
+			<table class="sheet-section-layout-table" >
+				<tr>
+				</tr>
+				<tr>
+					<td>
+						<!-- spacer -->
+					</td>
+					<td class="sheet-paper-background">
+						<div class="sheet-section-frame sheet-section-content">
+							<!-- content begin -->
+							
+							<!-- section title bar -->
+							<div class="sheet-section-title-bar sheet-text-align-center">
+								Spells
+							</div>
+							<div class="sheet-subsection-nontable-row" style="border-bottom: 1pt solid #808080;">
+							<!-- set of entry boxes -->
+								<div class="sheet-entry-array">
+									<fieldset class="repeating_attacks sheet-repeater-fieldset">
+										<!-- start of repeated section -->
+										
+										<div class="sheet-repeated-entry" style="border: none;">
+											<div class="sheet-half-width">
+												<div class="sheet-undertext">Spell Name</div>
+												<input type="text" name="attr_spell_name" value="" style="width:90%">
+											</div>
+											<div class="sheet-half-width">
+												<div class="sheet-undertext">Spell Tome</div>
+												<input type="text" name="attr_spelltome_name" value="" style="width:90%">
+											</div>
+											<br>
+											<div class="sheet-inline"> </div>
+											<div class="sheet-inline">
+												<div class="sheet-undertext sheet-text-align-center">Action Type</div>
+												<select class="sheet-numbox"  style="width: 8.5em" name="attr_spell_type">
+													<option value="Action">Action</option>
+													<option value="Bonus Action">Bonus Action</option>
+													<option value="Reaction">Reaction</option>
+												</select>
+											</div>
+											<div class="sheet-inline"> </div>
+											<div class="sheet-inline">
+												<div class="sheet-undertext sheet-text-align-center">Spell Type</div>
+												<select class="sheet-numbox"  style="width: 5.5em" name="attr_spell_type">
+													<option value="{{attack=[[1d@{spellattack_crit_range} + @{spellattack}]]}} {{attackadv=[[1d@{spellattack_crit_range} + @{spellattack}]]}}">Attack</option>
+													<option value="{{dc=@{spelldc}}}">Save</option>
+													<option value="">None</option>
+												</select>
+											</div>
+								            <div class="sheet-inline" style="text-align:center;">
+											    <div class="sheet-undertext sheet-text-align-left">Show Desc.</div>
+										        <input type="checkbox" checked="checked" name="attr_spelldesc" value="@{spell_desc}" />
+											</div>
+											<div class="sheet-inline">
+											    <div class="sheet-undertext">&nbsp;</div>
+									        <button class="sheet-roll-button" type="roll" value="@{hidden_roll} &{template:spell} {{name=@{spell_name}}} {{range=@{spell_range}}} {{area=@{spell_area}}} @{spell_type} @{spell_damageoutput} {{desc=@{spelldesc}}" name="roll_spell_cast"></button>
+								            </div>
+											<br>
+											<div class="sheet-inline">
+												<div class="sheet-undertext sheet-text-align-center">Attack Mod.</div>
+												<input class="sheet-numbox" type="number" name="attr_spellattack_mod_other" step="1" value="0" />
+											</div>
+											<div class="sheet-inline">
+												<div class="sheet-undertext sheet-text-align-center">DC Mod.</div>
+												<input class="sheet-numbox" type="number" name="attr_spelldc_mod_other" step="1" value="0" />
+											</div>
+											<div class="sheet-inline">
+												<div class="sheet-undertext sheet-text-align-center">Crit Range</div>
+												<input class="sheet-numbox" type="number" name="attr_spellattack_crit_range" step="1" value="20" />
+											</div>
+											<br>
+											<div class="sheet-inline">
+												<div class="sheet-undertext"></div>Range:
+												<input class="text" type="text" name="attr_spell_range" style="width:100px">
+											</div>
+											<div class="sheet-inline">
+												<div class="sheet-undertext"></div>Effect Area:
+												<input class="text" type="text" name="attr_spell_area" style="width:100px">
+											</div>
+											<br>
+											<br>
+											<div class="sheet-inline"  style="font-size: 20px;">
+												<div class="sheet-undertext"></div>Spell Damage
+											</div>
+											<!-- damage info -->
+										<input class="sheet-spell-info-button" style="vertical-align: middle;" type="checkbox" name="attr_spell_damageoutput" value="{{dmgtype1=@{spell_damage_type1}}} {{dmg1=[[@{spell_basedamage1} + @{spell_bonusdamage} + @{spell_totaldamage1}]]}} {{dmgcrit1=[[@{spell_basedamage1} + @{spell_basedamage1} + @{spell_bonusdamage} + @{spell_totaldamage1} + @{spell_totaldamage1}]]}} @{spell_damagetotal2} @{spell_damagetotal3}"/>
+									    <div class="sheet-spell-info">
+											<div class="sheet-inline">
+												<div class="sheet-undertext">Damage Type</div>
+												<input type="text" name="attr_spell_damage_type1" value="" style="width: 6em">
+											</div>
+											<div class="sheet-inline">
+												<div class="sheet-undertext sheet-text-align-left">Damage</div>
+												<input type="text" name="attr_spell_basedamage1" value="" style="width: 4em">
+											</div>
+											<div class="sheet-inline">
+												<div class="sheet-undertext sheet-text-align-left">Upcast</div>
+												<input type="text" name="attr_spell_upcastdamage1" value="" style="width: 4em">
+											</div>
+											<div class="sheet-inline">
+												<div class="sheet-undertext sheet-text-align-left">Bonus</div>
+												<input type="text" name="attr_spell_bonusdamage" value="" style="width: 3em">
+											</div>
+											<div class="sheet-inline" style="text-align:center;">
+											    <div class="sheet-undertext sheet-text-align-left">Upcast</div>
+										        <input type="checkbox" name="attr_spell_totaldamage1" value="@{spell_upcastdamage1}" />
+											</div>
+											<br>
+											<div class="sheet-inline" style="text-align:center;">
+											    <div class="sheet-undertext sheet-text-align-left">Active</div>
+										        <input type="checkbox" name="attr_spell_damagetotal2" value="{{dmgtype2=@{spell_damage_type2}}} {{dmg2=[[@{spell_basedamage2} + @{spell_totaldamage2}]]}} {{dmgcrit2=[[@{spell_basedamage2} + @{spell_basedamage2} + @{spell_totaldamage2} + @{spell_totaldamage2}]]}}" />
+											</div>
+											<div class="sheet-inline">
+												<div class="sheet-undertext">Damage Type</div>
+												<input type="text" name="attr_spell_damage_type2" value="" style="width: 6em">
+											</div>
+											<div class="sheet-inline">
+												<div class="sheet-undertext sheet-text-align-left">Damage</div>
+												<input type="text" name="attr_spell_basedamage2" value="" style="width: 4em">
+											</div>
+											<div class="sheet-inline">
+												<div class="sheet-undertext sheet-text-align-left">Upcast</div>
+												<input type="text" name="attr_spell_upcastdamage2" value="" style="width: 4em">
+											</div>
+											<div class="sheet-inline" style="text-align:center;">
+											    <div class="sheet-undertext sheet-text-align-left">Upcast</div>
+										        <input type="checkbox" name="attr_spell_totaldamage2" value="@{spell_upcastdamage2}" />
+											</div>
+											<br>
+											<div class="sheet-inline" style="text-align:center;">
+											    <div class="sheet-undertext sheet-text-align-left">Active</div>
+										        <input type="checkbox" name="attr_spell_damagetotal3" value="{{dmgtype3=@{spell_damage_type3}}} {{dmg3=[[@{spell_basedamage3} + @{spell_totaldamage3}]]}} {{dmgcrit3=[[@{spell_basedamage3} + @{spell_basedamage3} + @{spell_totaldamage3} + @{spell_totaldamage3}]]}}" />
+											</div>
+											<div class="sheet-inline">
+												<div class="sheet-undertext">Damage Type</div>
+												<input type="text" name="attr_spell_damage_type3" value="" style="width: 6em">
+											</div>
+											<div class="sheet-inline">
+												<div class="sheet-undertext sheet-text-align-left">Damage</div>
+												<input type="text" name="attr_spell_basedamage3" value="" style="width: 4em">
+											</div>
+											<div class="sheet-inline">
+												<div class="sheet-undertext sheet-text-align-left">Upcast</div>
+												<input type="text" name="attr_spell_upcastdamage3" value="" style="width: 4em">
+											</div>
+											<div class="sheet-inline" style="text-align:center;">
+											    <div class="sheet-undertext sheet-text-align-left">Upcast</div>
+										        <input type="checkbox" name="attr_spell_totaldamage3" value="@{spell_upcastdamage2}" />
+											</div>
+											<br>
+											<br>
+											<div class="sheet-undertext">Description:</div>
+											<textarea class="sheet-paragraph-box" name="attr_spell_desc"></textarea>
+										</div>
+										</div>
+										    </div>
+										
+										<!-- end of repeated section -->
+									</fieldset>
+								</div>
+							</div>
+							<!-- end of entry boxes -->
+							
+							<!-- end of content -->
+						</div>
+					</td>
+					<td>
+						<!-- spacer -->
+					</td>
+				</tr>
+				<tr>
+				</tr>
+			</table>
+		</div>
+		<!-- end notes box -->
+		
+		<!-- END OF COLUMN 2 -->
+		</div></td></tr>
+		</table>
+		
+	</div>
+	<!-- TAB 2 END -->
+	
+	<!-- TAB 3 START -->
+	<div class="sheet-tabbed-pane sheet-tab3">
+		
+		<table class="sheet-columns"><tr>
+		<td class="sheet-column1-cell">
+		<div class="sheet-column1">
+		<!-- COLUMN 1 -->
+		
+		<!-- contacts box -->
+		<div>
+			<!-- box -->
+			<table class="sheet-section-layout-table" >
+				<tr>
+					<td>
+						<!-- spacer -->
+					</td>
+					<td class="sheet-paper-background">
+						<div class="sheet-section-frame sheet-section-content">
+							<!-- section title bar -->
+							<div class="sheet-section-title-bar sheet-text-align-center">Abilities</div>
+							<div class="sheet-subsection-nontable-row" style="border-bottom: 1pt solid #808080;">
+								<div class="sheet-inline" >
+							        <div class="sheet-undertext">&nbsp;</div>
+    							</div>
+    							<div class="sheet-inline" >
+							        <div class="sheet-undertext">&nbsp;</div>
+    								Ability Points:
+    							</div>
+								<div class="sheet-inline">
+									<div class="sheet-undertext sheet-text-align-center">Available</div>
+									<input class="sheet-numbox" style="width: 4em;" type="number" name="attr_ap_available"/>
+								</div>
+								<div class="sheet-inline" >
+							        <div class="sheet-undertext">&nbsp;</div>
+    								/
+    							</div>
+								<div class="sheet-inline">
+									<div class="sheet-undertext sheet-text-align-center">Max</div>
+									<input class="sheet-numbox" style="width: 4em;" type="number" name="attr_ap_max" value="4 +@{ap_human} +@{level}*2" disabled="disabled"/>
+								</div>
+								<div class="sheet-inline sheet-text-align-center">
+									<div class="sheet-undertext">Human</div>
+									<input type="checkbox" name="attr_ap_human" value="2"/>
+								</div>
+							<div class="sheet-text-align-center" style="font-size: 18pt;">
+								Known Abilities
+							</div>
+								<!-- set of entry boxes -->
+								<div class="sheet-entry-array">
+									<fieldset class="repeating_attacks sheet-repeater-fieldset">
+										<!-- start of repeated section -->
+										
+										<div class="sheet-repeated-entry" style="border: none;">
+					            <div class="sheet-inline">
+								<div class="sheet-undertext">Ability Name</div>
+												<input type="text" name="attr_ability_name" value="" style="width:200px">
+											</div>
+											<div class="sheet-inline">
+												<div class="sheet-undertext sheet-text-align-left">AP Cost</div>
+												<input class="sheet-numbbox" type="number" name="attr_ability_cost" value="0">
+												<button class="sheet-roll-button" type="roll" value="@{hidden_roll} &{template:ability} {{name=@{ability_name}}} {{desc=@{ability_desc}}}" name="roll_ability"></button>
+											</div>
+											<br>
+											<div class="sheet-undertext">Description:</div>
+											<textarea class="sheet-paragraph-box" name="attr_ability_desc"></textarea>
+											<!-- end of repeated section -->
+									</fieldset>
+							</div>
+					</td>
+					<td>
+						<!-- spacer -->
+					</td>
+				</tr>
+			</table>
+		</div>
+		<!-- end contacts box -->
+		
+		<!-- END OF COLUMN 1 -->
+		</div>
+		</td><td class="sheet-column2-cell">
+		<div class="sheet-column2">
+		<!-- COLUMN 2 -->
+		
+		<!-- notes box -->
+		<div>
+			<!-- box -->
+			<table class="sheet-section-layout-table" >
+				<tr>
+				</tr>
+				<tr>
+					<td>
+						<!-- spacer -->
+					</td>
+					<td class="sheet-paper-background">
+						<div class="sheet-section-frame sheet-section-content">
+							<!-- content begin -->
+							
+							<!-- section title bar -->
+							<div class="sheet-section-title-bar">Notes</div>
+							<textarea class="sheet-long-list-box" name="attr_story_notes"></textarea>
+							
+							<!-- end of content -->
+						</div>
+					</td>
+					<td>
+						<!-- spacer -->
+					</td>
+				</tr>
+				<tr>
+				</tr>
+			</table>
+		</div>
+		<!-- end notes box -->
+		
+		<!-- END OF COLUMN 2 -->
+		</div></td></tr>
+		</table>
+		
+	</div>
+	<!-- TAB 3 END -->
+
+    <!-- TAB PC ENDS -->   	    
+        </div></td></tr></table>
+    </div>
+	
+
+		<!-- Roll Template Attack -->
+<rolltemplate class="sheet-rolltemplate-attack">
+    <div class="container">
+        <div><h1>{{name}}</h1></div>
+        <div><span class="template-subheader">{{desc}}</span></div>
+        <div class="arrow-container"><div class="arrow-right"></div></div>
+        <div class="rowcolor"><span class="tcatmain">Attack: </span>{{attack}} | {{attackadv}}</div>
+        {{#range}}
+            <div>
+                 <span class="tcat">Range: </span>{{range}}
+            </div>
+        {{/range}}
+        {{#dmg1}}
+            <div>
+                 <span class="tcat">{{dmgtype1}} Damage: </span>{{dmg1}} 
+                 <span class="tcat">Crit: </span>{{dmgcrit1}}
+            </div>
+        {{/dmg1}}
+        {{#dmg2}}
+            <div>
+                 <span class="tcat">{{dmgtype2}} Damage: </span>{{dmg2}}
+                 <span class="tcat">Crit: </span>{{dmgcrit2}}
+            </div>
+        {{/dmg2}}
+        {{#dmg3}}
+            <div>
+                 <span class="tcat">{{dmgtype3}} Damage: </span>{{dmg3}}
+                 <span class="tcat">Crit: </span>{{dmgcrit3}}
+            </div>
+        {{/dmg3}}
+    </div>
+</rolltemplate>
+
+		<!-- Roll Template Spell -->
+<rolltemplate class="sheet-rolltemplate-spell">
+    <div class="container">
+        <div><h1>{{name}}</h1></div>
+        <div class="arrow-container"><div class="arrow-right"></div></div>
+         {{#attack}}
+            <div>
+                 <span class="tcatmain">Attack: </span>{{attack}} | {{attackadv}}
+            </div>
+        {{/attack}}
+        {{#dc}}
+            <div>
+                 <span class="tcatmain">DC: </span><div style="font-weight: bold; display: inline-block;">{{dc}}</div>
+            </div>
+        {{/dc}}
+        {{#dmg1}}
+            <div>
+                 <span class="tcat">{{dmgtype1}} Damage: </span>{{dmg1}} 
+                 <span class="tcat">Crit: </span>{{dmgcrit1}}
+            </div>
+        {{/dmg1}}
+        {{#dmg2}}
+            <div>
+                 <span class="tcat">{{dmgtype2}} Damage: </span>{{dmg2}}
+                 <span class="tcat">Crit: </span>{{dmgcrit2}}
+            </div>
+        {{/dmg2}}
+        {{#dmg3}}
+            <div>
+                 <span class="tcat">{{dmgtype3}} Damage: </span>{{dmg3}}
+                 <span class="tcat">Crit: </span>{{dmgcrit3}}
+            </div>
+        {{/dmg3}}
+        {{#range}}
+            <div>
+                 <span class="tcat">Range: </span>{{range}}
+            </div>
+        {{/range}}
+        {{#area}}
+            <div>
+                 <span class="tcat">Area: </span>{{area}}
+            </div>
+        {{/area}}
+        {{#desc}}
+            <div>
+                 <span class="tcat">Description</span><br>{{desc}}
+            </div>
+        {{/desc}}
+    </div>
+</rolltemplate>
+		
+		<!-- Roll Template Check -->
+<rolltemplate class="sheet-rolltemplate-check">
+    <div class="container">
+        <div><h1>{{name}}</h1></div>
+        <div><span class="template-subheader">{{subtags}}</span></div>
+        <div class="arrow-container"><div class="arrow-right"></div></div>
+        <div style="text-align: center; font-size: 18px;">{{check}} | {{checkadv}}</div>
+    </div>
+</rolltemplate>
+
+		<!-- Roll Template Ability -->
+<rolltemplate class="sheet-rolltemplate-ability">
+    <div class="container">
+        <div><h1>{{name}}</h1></div>
+        <div class="arrow-container"><div class="arrow-right"></div></div>
+        <div class="rowcolor">{{desc}}</div>
+    </div>
+</rolltemplate>
+	
